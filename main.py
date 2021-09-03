@@ -75,7 +75,7 @@ print(cursor.fetchall())
 '''
 
 
-
+'''
 cursor.execute("""INSERT INTO 
                bank_accounts (number, name, password, value, admin, agency_id)
                VALUES('0001-03','Fulano da Silva','123456',450.50,0,1)""")
@@ -83,4 +83,20 @@ cursor.execute("""INSERT INTO
 cursor.execute('SELECT * FROM bank_accounts')
 
 print(cursor.fetchall())
+'''
+
+'''
+row_affected = cursor.execute("""UPDATE bank_accounts
+                                    SET VALUE = 40000
+                                    WHERE ID = 13""")
+
+print(row_affected)
+print(cursor.rowcount)
+'''
+
+
+row_affected = cursor.execute("""DELETE FROM bank_accounts
+                                WHERE ID = 13""")
+print(row_affected)
+print(cursor.rowcount)
 
